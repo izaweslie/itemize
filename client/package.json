@@ -8,7 +8,11 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-modal": "^3.1.11",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "axios": "^0.17.1",
+    "router-express": "^1.5.2",
+    "express-router": "0.0.1",
+    "path": "^0.12.7"
   },
   "engines": {
     "node": "6.11.1"
