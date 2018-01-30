@@ -8,9 +8,9 @@ html {
 }
 
 
-@media screen and (max-width:1280px){
+@media screen and (min-width:766px){
     .MainContainer {
-    background: url("../images/inverted-blueprint.jpg") no-repeat center center fixed;
+    background: url("../../images/inverted-blueprint.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -27,7 +27,7 @@ html {
 
 .Image {
 	background-color: none;
-	display: inline-block;
+	display: none;
 	width: 50%;
 	height: 400px;
 
@@ -35,13 +35,14 @@ html {
 
 @media screen and (max-width:765px){
     .Image {
-    background: url("../images/blue-blueprint.jpg") no-repeat center center fixed;
+    background: url("../../images/bw-blueprint.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     width: 100%;
     float: left;
+    display: block;
     }
 }
 
