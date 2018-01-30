@@ -10,7 +10,7 @@ html {
 
 @media screen and (min-width:766px){
     .MainContainer {
-    background: url("../../images/inverted-blueprint.jpg") no-repeat center center fixed;
+    background: url("../../images/inverted -blueprint.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -41,6 +41,7 @@ html {
     -o-background-size: cover;
     background-size: cover;
     width: 100%;
+    height: 200px;
     float: left;
     display: block;
     }
@@ -49,7 +50,7 @@ html {
 .Container {
 	background-color: yellow;
 	display: inline-block;
-	width: 50%;
+	width: 90%;
 	height: 400px;
 }
 
@@ -67,6 +68,9 @@ html {
 .InnerContainer {
 	background-color: green;
 	overflow: auto;
+	margin: 35px;
+	position: relative;
+	width: 100%;
 }
 
 .InfoBox {
@@ -79,10 +83,20 @@ html {
 
 .TopContentBox {
 	background-color: violet;
+	width: 60%;
+	left: 40px;
+	top: 20px;
+	float; left;
 }
 
 .BottomContentBox {
 	background-color: black;
+	display: block;
+	width: 30%;
+	position: absolute;
+	top: 20px;
+	right: 40px;
+
 }
 
 .Routes {
