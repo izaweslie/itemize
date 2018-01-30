@@ -1,0 +1,93 @@
+html {
+	overflow: auto;
+}
+.MainContainer {
+	background-color: red;
+	position: absolute;
+	overflow: auto;
+}
+
+
+@media screen and (max-width:1280px){
+    .MainContainer {
+    background: url("../images/inverted-blueprint.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    }
+}
+
+@media screen and (max-width:765px){
+    .MainContainer {
+    	background: none;
+    }
+}
+
+.Image {
+	background-color: none;
+	display: inline-block;
+	width: 50%;
+	height: 400px;
+
+}
+
+@media screen and (max-width:765px){
+    .Image {
+    background: url("../images/blue-blueprint.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    float: left;
+    }
+}
+
+.Container {
+	background-color: yellow;
+	display: inline-block;
+	width: 50%;
+	height: 400px;
+}
+
+@media screen and (max-width:765px){
+    .Container {
+        width: 100%;
+        height: 400px;
+        background-color: yellow;
+        margin: 20px auto;
+        float: left;
+    }
+}
+
+
+.InnerContainer {
+	background-color: green;
+	overflow: auto;
+}
+
+.InfoBox {
+	background-color: blue;
+}
+
+.LogoBox {
+	background-color: grey;
+}
+
+.TopContentBox {
+	background-color: violet;
+}
+
+.BottomContentBox {
+	background-color: black;
+}
+
+.Routes {
+	background-color: pink;
+}
+
+.CTAbuttons {
+	background-color: beige;
+}
