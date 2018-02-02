@@ -1,29 +1,12 @@
 html {
 	overflow: auto;
 }
+
 .MainContainer {
 	position: absolute;
 	overflow: auto;
-}
-
-@media screen and (min-width:766px){
-    .MainContainer {
-    background: url("../../images/inverted-blueprint.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
-    opacity: .5;
-    z-index: -1;
+	height: 100%;
     }
-}
-
-@media screen and (max-width:765px){
-    .MainContainer {
-    	background: none;
-    }
-}
 
 .Image {
 	background-color: none;
@@ -33,107 +16,56 @@ html {
 
 }
 
-@media screen and (max-width:765px){
-    .Image {
-    background: url("../../images/bw-blueprint.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    width: 100%;
-    height: 200px;
-    float: left;
-    display: block;
-    }
-}
-
 .Container {
 	display: inline-block;
 	width: 100%;
-	height: 400px;
+	height: 100%;
 }
-
-@media screen and (max-width:765px){
-    .Container {
-        width: 100%;
-        float: left;
-        display: block;
-    }
-}
-
 
 .InnerContainer {
 	position: relative;
 	width: 100%;
 	margin-left: 20px;
 }
-@media screen and (max-width:765px){
-    .InnerContainer {
-        width: 100%;
-        float: left;
-    }
-}
-
 
 .InfoBox {
-	margin: 40px 0px 20px 20px;
+	margin: 10px 0px 20px 20px;
 
-}
-
-@media screen and (max-width:765px){
-    .InfoBox {
-        width: 90%;
-        margin: 20px auto;
-        float: left;
-        padding: 20px;
-    }
 }
 
 .LogoBox {
-	margin-left: 20px
+	margin-left: 60px
 }
 
 .TopContentBox {
-	width: 40%;
+	width: 38%;
 	left: 40px;
 	top: 20px;
 	float: left;
-	margin-left: 20px;
-}
-
-@media screen and (max-width:765px){
-    .TopContentBox {
-        width: 100%;
-    }
+	margin-left: 60px;
 }
 
 .BottomContentBox {
 	display: block;
 	width: 50%;
-	position: absolute;
-	top: 20px;
-	right: 40px;
-}
-
-@media screen and (max-width:765px){
-    .BottomContentBox {
-        width: 100%;
-        margin: 20px auto;
-        float: left;
-        display: block;
-        position: static;
-    }
+	/*position: absolute;*/
+	top: 10px;
+	right: 60px;
 }
 
 .Routes {
-	margin: 15px;
 	position: absolute;
-	right: 300px;
+    right: 340px;
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+    top: 20px;
 }
 
 .CTAbuttons {
 	position: absolute;
-	right: 20px;
+    right: 60px;
+    top: 20px;
 }
 
 li {
@@ -141,17 +73,16 @@ li {
 	display: inline;
 	border-style: solid;
 	padding: 5px;
-	margin-right: 15px;
+	background-color: black;
+	color: white;
+	border-color: black;
 }
 
-@media screen and (max-width:765px){
-    li {
-	list-style: none;
-	border-style: solid;
-	padding: 5px;
-	margin-right: 15px;
-
-    }
+li:hover {
+	color: black;
+	background-color: #b3ea4d;
+	border-color: #b3ea4d;
+	font-style: bold;
 }
 
 ul {
@@ -159,33 +90,46 @@ ul {
 	font-family: 'Play', sans-serif;
 }
 
-img {
-	height: 25px;
-	width: 25px;
-	align-items: center;
-	border-radius: 55%;
-	display: inline;
+#Cta1 {
+	/*margin-right: 10px;*/
 }
 
-h1, h2, p {
-	color: #69BF23;
-	font-style: bold;
-	font-family: 'Play', sans-serif;
-	position: relative;
-	z-index: 10;
-}
-
-@media screen and (max-width:765px){
-h1, h2, p {
+.Description, .P {
 	color: #000000;
-	font-style: bold;
-	font-family: 'Play', sans-serif;
+	font-family: 'Exo', sans-serif;
 	position: relative;
-	z-index: 10;
-    }
 }
 
-h1 {
-	font-size: 64px
+.Description {
+	font-size: 26px;
+}
+
+.P {
+	font-size: 18px;
+}
+
+.Logo {
+	font-size: 72px;
+	font-style: bold;
+	font-family: 'PLay', sans-serif;
+	text-shadow: 2px 2px 5px black;
+	color: #b3ea4d;
+	margin-bottom: 20px;
+}
+
+img {
+	height: 25%;
+	width: 25%;
+	margin-right: 15px;
+	margin-top: 10px;
+}
+
+.swal-overlay {
+  background-color: rgba(105, 191, 35, 0.40);
+}
+
+.swal-button {
+	color: white;
+	background-color: black;
 }
 
