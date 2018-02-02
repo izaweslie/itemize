@@ -3,6 +3,10 @@ import "./LandingPage.css";
 import "./mediastyle.css";
 import "./navbarmedia.css";
 
+// showAlert() {
+//   document.getElementById("Cta1").innerHTML = swal("This is where the sign up form goes!");
+// }
+
 const LandingPage = () => (
   <div className="MainContainer Clearfix">
     <div className="Image Clearfix">
@@ -26,7 +30,7 @@ const LandingPage = () => (
           </div>
           <div className="CTAbuttons">
             <ul className="UserButtons">
-              <li id="Cta1">Call to action 1</li>
+              <li id="Cta1" onClick={this.showAlert}>Call to action 1</li>
               <li id="Cta2">Call to action 2</li>
             </ul>
           </div>

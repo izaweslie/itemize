@@ -3,6 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediastyle.css">
+    <link rel="stylesheet" href="navbarmedia.css">
+    <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo:800,900|Montserrat:800" rel="stylesheet">
+    <script src="jquery-3.3.1.min.js"></script><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta name="theme-color" content="#000000">
     <!--
       manifest.json provides metadata used when your web app is added to the
@@ -22,9 +28,15 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <script>
+
+          document.getElementById("Cta1").onclick = function() {sweetAlert()};
+
+          function sweetAlert() {
+            document.getElementById("Cta1").innerHTML = swal("This is where the sign up form goes!");
+          };      
+      //You need to enable JavaScript to run this app.//
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
