@@ -1,0 +1,70 @@
+
+body {
+	width: 100%;
+	font-family: 'Open Sans Condensed', sans-serif;
+	letter-spacing: 5px;
+	background-color: rgb(194, 224, 231);
+	color: black;
+}
+.navbar-collapse{
+	float: right;
+	position: relative;
+	top:0;
+}
+
+.buttonDiv{
+	padding: 25px;
+}
+#manualBtn{
+	border: solid;
+	border-width: 1px;
+	border-color: rgb(238, 199, 172);
+	padding: 25px;
+	background-color: white;
+	text-decoration: none;
+}
+
+
+
+#myBtn{
+	font-size: 20px;
+}
+
+#primaryBtnColor{
+	background-color: rgb(166, 89, 86);
+	font-size: 15px;
+}
+
+#cancelButtonColor{
+	background-color: rgb(166, 197, 204);
+	font-size: 15px;
+}
+.glyphicon{
+	color: rgb(213, 106, 85);
+}
+.modal-body{
+	background-color: rgb(194, 224, 231);
+}
+
+.navbar, .modal-header, .modal-footer{
+	background-color: rgb(241, 236, 222);
+}
+
+#headerOne {
+	background-color: rgb(241, 236, 222);
+	color: black;
+	border: solid;
+	border-width: 1px;
+	border-color: rgb(238, 199, 172);
+	text-align: center;
+}
+
+.btn, .btn-danger{
+	background-color: rgb(145, 183, 150);
+	border: none;
+}
+
+.list{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}

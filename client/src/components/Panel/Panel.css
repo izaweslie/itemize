@@ -1,0 +1,12 @@
+.panel-body{
+	border: 0px;
+}
+
+.panel-default>.panel-heading{
+	background-color: #E0DDCF;
+	color: #353535;
+}
+
+.panel-default {
+	font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+}
