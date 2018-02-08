@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Articles from "./pages/Articles";
 import NoMatch from "./pages/NoMatch";
 import {Nav, Footer} from "./components/Nav";
+import Auth from './Auth/Auth.js';
+
+const auth = new Auth();
+auth.login();
 
 
 const App = () =>
