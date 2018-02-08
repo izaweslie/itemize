@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
   },
-  "engines":{
+  "engines": {
     "node": "6.11.1"
   },
   "author": "",
@@ -21,6 +21,7 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "auth0-js": "^9.2.1",
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
