@@ -17,3 +17,14 @@ export default class Auth {
   }
 }
 
+constructor() {
+    this.login = this.login.bind(this);
+    this.signup = this.signup.bind(this);
+    this.loginWithGoogle = this.loginWithGoogle.bind(this);
+    this.logout = this.logout.bind(this);
+    this.handleAuthentication = this.handleAuthentication.bind(this);
+    this.isAuthenticated = this.isAuthenticated.bind(this);
+  }
+
+
+
