@@ -7,7 +7,7 @@ export default class Auth {
     domain: 'https://warm-waters-37423.herokuapp.com/',
     clientID: 'cYkWhCZ4ZSMAzoU4Kj3kWn8wv72gUKdN',
     redirectUri: 'https://warm-waters-37423.herokuapp.com/',
-    audience: 'https://itemizeteam.auth0.com/userinfo',
+    audience: 'https://itemizeteam.auth0.com/login?client=cYkWhCZ4ZSMAzoU4Kj3kWn8wv72gUKdN',
     responseType: 'token id_token',
     scope: 'openid'
   });
