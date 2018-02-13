@@ -1,0 +1,145 @@
+html {
+	overflow: auto;
+}
+
+.MainContainer {
+	position: absolute;
+	overflow: auto;
+	height: 100%;
+    }
+
+.Image {
+	background-color: none;
+	display: none;
+	width: 50%;
+	height: 400px;
+
+}
+
+.Container {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.InnerContainer {
+	position: relative;
+	width: 100%;
+	margin-left: 20px;
+}
+
+.InfoBox {
+	margin: 10px 0px 20px 20px;
+
+}
+
+.LogoBox {
+	margin-left: 60px
+}
+
+.TopContentBox {
+	width: 38%;
+	left: 40px;
+	top: 20px;
+	float: left;
+	margin-left: 60px;
+}
+
+.BottomContentBox {
+	display: block;
+	width: 50%;
+	/*position: absolute;*/
+	top: 10px;
+	right: 60px;
+}
+
+.Routes {
+	position: absolute;
+    right: 340px;
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+    top: 20px;
+}
+
+.CTAbuttons {
+	position: absolute;
+    right: 60px;
+    top: 20px;
+}
+
+li {
+	list-style: none;
+	display: inline;
+	border-style: solid;
+	padding: 5px;
+	background-color: black;
+	color: white;
+	border-color: black;
+}
+
+li:hover {
+	color: black;
+	background-color:rgb(247, 175, 65);
+	border-color: rgb(247, 175, 65);
+	font-style: bold;
+}
+
+ul {
+	font-style: bold;
+	font-family: 'Play', sans-serif;
+}
+
+#Cta1 {
+	margin-right: 10px;
+}
+
+.Description, .P {
+	color: #000000;
+	font-family: 'Exo', sans-serif;
+	position: relative;
+}
+
+.Description {
+	font-size: 26px;
+}
+
+.P {
+	font-size: 18px;
+}
+
+.Logo {
+	font-size: 72px;
+	font-style: bold;
+	font-family: 'PLay', sans-serif;
+	text-shadow: 2px 2px 5px black;
+	color:rgb(247, 175, 65);
+	margin-bottom: 20px;
+}
+
+img {
+	height: 25%;
+	width: 25%;
+	margin-right: 15px;
+	margin-top: 10px;
+}
+
+.swal-overlay {
+  background-color: rgba(194, 224, 231, 0.40);
+}
+
+.swal-button {
+	color: white;
+	background-color: black;
+}
+
+.VideoIcon {
+	background-image:url('../../images/video.png');
+}
+
+
+a:link, a:visited {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
