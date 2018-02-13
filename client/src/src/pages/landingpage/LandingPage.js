@@ -2,7 +2,7 @@ import React from "react";
 import "./LandingPage.css";
 import "./navbarmedia.css";
 import "./mediastyle.css";
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 
 
 
