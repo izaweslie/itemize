@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Articles from "./pages/Articles";
 import NoMatch from "./pages/NoMatch";
 import {Nav, Footer} from "./components/Nav";
-import Auth from './Auth/Auth.js';
+import Auth from '.client/src/Auth/Auth.js';
 import React, { Component } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
 import './App.css';
