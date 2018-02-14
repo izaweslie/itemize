@@ -30,7 +30,6 @@ class Articles extends Component {
 			error: false,
 			data: "",
 			loggedIn: false,
-			profile: "",
 			user_id: "",
 			savedItems: [],
 			item: {
@@ -104,51 +103,11 @@ class Articles extends Component {
 		//this.afterOpenModal = this.afterOpenModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 	}
-	login() {
-		console.log("logged in")
-    	this.props.auth.login();
-    	console.log(this.props.auth)
-  	}
 
-  	logout() {
-  		console.log("clicked")
-  		this.props.auth.logout();
-  		this.setState({user_id: ""})
-  	}
-
-  	checkForUser(user_id){
-  		API.getUserSavedItems(user_id).then(res => {
-			console.log("res", res);
-			if (res.data === null){
-				//this.setState({user_id: })
-				API.createUser(this.state.user_id).then(res => {
-					console.log("res", res);
-				})
-			}
-		}).catch(err => console.log(err));
-
-  	}
 	componentWillMount() {
 		Modal.setAppElement('#root');
-		 this.setState({ profile: {} });
-		 console.log(localStorage.user_id);
-		 this.setState({user_id: localStorage.user_id})
-		 console.log(localStorage.user_id)
-		 this.checkForUser(localStorage.user_id)
-		const { userProfile, getProfile } = this.props.auth;
-		console.log("user", this.state.profile)
-    if (!userProfile) {
-    	console.log('here')
-      getProfile((err, profile) => {
-        this.setState({ profile });
-      });
-    } else {
-      this.setState({ profile: userProfile, user_id: userProfile.sub }, function () {
-    		console.log(this.state.profile);
-    })
 		//this.loggedIn();
 	}
-}
 	componentDidMount() {
 		//console.log("here")
 		// this.setState({loggedIn: true, user_id: "1"});
@@ -183,25 +142,24 @@ class Articles extends Component {
 	}
 
 	loadSavedItems = () => {
-		API.getUserSavedItems(this.state.user_id).then(res => {
-			console.log("saved", res)
-			this.setState({ savedItems: res.data.items })
+		API.getSavedItems().then(res => {
+			this.setState({ savedItems: res.data.item })
 			console.log(this.state.savedItems)
 		}).catch(err => console.log(err));
 	}
 
 	loggedIn = () => {
-		this.setState({loggedIn: true, user_id: "4"},  function () {
+		this.setState({loggedIn: true, user_id: "3"},  function () {
     		console.log(this.state.user_id);
     		this.loadUserSavedItems(this.state.user_id)
-    		console.log(this.state.profile);
+
     	});
 		//console.log(this.state.loggedIn);
 		//this.loadUserSavedItems(this.state.user_id);
 	}
 
 	handleItemSave = (item) => {
-		API.saveItem(this.state.user_id,{
+		API.saveItem({
 			productName: item.productName,
 			companyName: item.companyName,
 			ean: item.ean,
@@ -213,8 +171,6 @@ class Articles extends Component {
 			location:item.location
 		})
 		.then(res => {
-			console.log(res)
-			//API.updateUserItems(this.state.user_id, res.data._id)
 			this.loadSavedItems();
 		})
 		.catch(err => console.log(err));
@@ -240,16 +196,14 @@ class Articles extends Component {
 	}
 
 	startQuagga = () => {
-		//console.log("this is", this);
-		//console.log(this.state.liveStreamConfig.inputStream.target)
-		console.log(this.props.auth)
-		console.log(this.state.profile);
-		//this.loggedIn();
+		console.log("this is", this);
+		console.log(this.state.liveStreamConfig.inputStream.target)
+		this.loggedIn();
 		let selector = Object.assign({}, this.state.liveStreamConfig);
 		//while(selector.inputStream.target === null){
 		selector.inputStream.target = document.querySelector('#scanner-container');
 		//}
-		//console.log(selector)
+		console.log(selector)
 		this.setState({liveStreamConfig: selector});
 		Quagga.init(
 			this.state.liveStreamConfig, (err) => {
@@ -362,43 +316,12 @@ class Articles extends Component {
 				}	
 			}
 			else {
-				//this.setState({data: "error", error: true});
+				this.setState({data: "error", error: true});
 				console.log(this.state)
-				this.setState({code: "", codeInput: true})
-				var newData = { 
-						data: {
-							product:{
-								attributes:{
-									product: "Item not found. Please enter the Item details",
-									category_text: "",
-									long_desc: "",
-									price_new: ""
-								},
-								EAN13: "",
-								UPCA: "",
-								image: ""
-							},
-							company:{
-								name: ""
-							}
-						}
-					}
-					this.setState({data: newData.data});
-					console.log(this.state.data);
-					let item = Object.assign({}, this.state.item);
-					item.productName = this.state.data.product.attributes.product;
-					item.companyName = this.state.data.company.name;
-					item.ean = this.state.data.product.EAN13;
-					item.upca = this.state.data.product.UPCA;
-					item.category = this.state.data.product.attributes.category_text;
-					item.desc = this.state.data.product.attributes.long_desc;
-					item.price_new = this.state.data.product.attributes.price_new;
-					item.image = this.state.data.product.image;
-					this.setState({item});
-				// let item = Object.assign({}, this.state.item);
-				// item.productName = this.state.data;
-				// console.log(item)
-				// this.setState({item});
+				let item = Object.assign({}, this.state.item);
+				item.productName = this.state.data;
+				console.log(item)
+				this.setState({item});
 				console.log(this.state)
 			}
 		})
@@ -455,15 +378,12 @@ class Articles extends Component {
 	}
 
 	render() {
-		const { isAuthenticated } = this.props.auth;
-	    return (
-	      <div>
-	        {
-	          isAuthenticated() && (
-	              <Container fluid>
+		return (
+			<div>
+				<Container fluid>
 					<div className = "row buttonDiv">
 						<div className="offset-md-3 col col-md-3 col-sm-6 text-center">
-							<a data-toggle="modal" href="" id="manualBtn"><span className="glyphicon glyphicon-pencil" onClick={()=>this.logout.bind(this)}></span>Manual Entry</a>
+							<a data-toggle="modal" href="" id="manualBtn"><span className="glyphicon glyphicon-pencil disabled"></span>Manual Entry</a>
 						</div>
 						<div className="col col-md-3 col-sm-6 text-center">
 							<a data-toggle="modal" onClick={() => this.openModal()} href="#" id="cameraBtn"><span className="glyphicon glyphicon-camera"></span>Camera Entry</a>
@@ -558,24 +478,8 @@ class Articles extends Component {
 						</div>
 					</Modal>
 				</Container>
-	            )
-	        }
-	        {
-	          !isAuthenticated() && (
-	              <h4>
-	                You are not logged in! Please{' '}
-	                <a
-	                  style={{ cursor: 'pointer' }}
-	                  onClick={this.login.bind(this)}
-	                >
-	                  Log In
-	                </a>
-	                {' '}to continue.
-	              </h4>
-	            )
-	        }
-	      </div>
-	    );
+			</div>	
+		);
 	}
 }
 

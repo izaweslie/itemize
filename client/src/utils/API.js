@@ -20,6 +20,8 @@ export default {
       'mode': 'json',
       'find': code
     }
+
+
 // item.productName = this.state.data.product.attributes.product;
 //       item.companyName = this.state.data.company.name;
 //       item.ean = this.state.data.product.EAN13;
@@ -40,6 +42,7 @@ export default {
     // }
 
     return axios.get("https://eandata.com/feed/?v=3", {params}).then(results =>{
+
       console.log(results)
       var thing = results.data.product
       console.log(thing.length)
@@ -74,15 +77,26 @@ export default {
     })
   },
 
-  getSavedItems: function() {
-    return axios.get("/api/items/");
+  createUser: function(userId) {
+    return axios.post("api/user/" + userId)
   },
 
+  getSavedItems: function() {
+    return axios.get("/api/item/");
+  },
+
+  getUserSavedItems: function(id) {
+    return axios.get("/api/user/" + id)
+  },
+
+  updateUserItems: function(id,item_id){
+    return axios.put("/api/user/" + id, item_id)
+  },
   // deleteArticle: function(id) {
   //   return axios.delete("/api/articles/" + id);
   // },
 
-  saveItem: function(item) {
-    return axios.post("/api/items", item);
+  saveItem: function(id,item) {
+    return axios.post("/api/user/" + id + "/item",{id, item});
   }
 };

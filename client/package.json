@@ -4,6 +4,9 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "auth0": "^2.9.1",
+    "auth0-js": "^9.2.2",
+    "jwt-decode": "^2.2.0",
     "quagga": "^0.12.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
