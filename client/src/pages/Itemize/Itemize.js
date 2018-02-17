@@ -116,9 +116,10 @@ class Itemize extends Component {
 
 	componentWillMount() {
 		Modal.setAppElement('#root');
-		//this.setState({ profile: {} });
-		//console.log(localStorage.user_id);
+		this.setState({ profile: {} });
+		console.log(localStorage.user_id);
 		this.setState({user_id: localStorage.user_id})
+		console.log(this.state);
 		//console.log(localStorage.user_id)
 		this.checkForUser(localStorage.user_id) //need to figure out how to check if user exists based on async
 		//const { userProfile, getProfile } = this.props.auth;
@@ -179,6 +180,13 @@ class Itemize extends Component {
 		.catch(err => console.log(err));
 	};
 
+	handleModalChange = (event) => {
+		const { name, value } = event.target;
+		console.log(event.target)
+		this.setState({
+			[name]: value
+		});
+	}
 	handleChange = (event) => {
 		//const newState = {...this.state, event[target]}
 		const { name, value } = event.target;
@@ -264,7 +272,9 @@ class Itemize extends Component {
 
 	handleSubmit(event){
 		event.preventDefault();
+		console.log(this.state.code)
 		if(this.state.code){
+
 			this.stopQuagga();
 			this.getProductInfo();
 		}
@@ -438,7 +448,7 @@ class Itemize extends Component {
 
     return (
       <div>
-        <Container fluid>
+        <div className = "container-fluid">
           <div className = "row buttonDiv">
             <div className="offset-md-3 col col-md-3 col-sm-6 text-center">
               <a data-toggle="modal" onClick={() => this.openModal(ModalType.MANUAL)} href="" id="manualBtn"><span className="glyphicon glyphicon-pencil" onClick={()=>this.logout.bind(this)}></span>Manual Entry</a>
@@ -448,12 +458,12 @@ class Itemize extends Component {
             </div>
           </div>
           <div className="row list">
-            <Col size ="sm-12 xs-12">
+            <div className ="sm-12 xs-12">
             {this.state && !this.state.databaseCall ?(<h1 className="list-group-item active" id="headerOne">Enter Item</h1>): (<h1 className="list-group-item active" id="headerOne">Your Items</h1>)}
-            </Col>
+            </div>
           </div>
 
-          <Row>
+          <div className = "row">
             {this.state && !this.state.databaseCall ? (
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
@@ -475,7 +485,7 @@ class Itemize extends Component {
                 <button type="submit" className="btn btn-primary">Submit</button>
               </form>
             ) : (
-              <Col size='md-12'>
+              <div className='md-12'>
                 {this.state.savedItems.length ? (
                   <div className="card-columns">
                     {this.state.savedItems.map(item => (
@@ -498,11 +508,11 @@ class Itemize extends Component {
                 ) : (
                   <h3>No Results to Display</h3>
                 )}
-              </Col>
+              </div>
             )}
-          </Row>
+          </div>
           {this.renderModal()}
-        </Container>
+        </div>
       </div>
     );
 	}
@@ -516,8 +526,9 @@ class Itemize extends Component {
           onClose={() => this.stopQuagga()}
           
           onSubmit={this.handleSubmit}
-          code={this.state.code}
-          onChange={this.handleChange}
+
+          onChange={this.handleModalChange}
+          code = {this.state.code}
         />;
       case ModalType.MANUAL:
         return <ManualModal
@@ -532,4 +543,4 @@ class Itemize extends Component {
   }
 }
 
-export default Articles;
+export default Itemize;

@@ -52,9 +52,9 @@ class LandingPage extends Component {
                         </div>
                         <div className="BottomContentBox">
                           <div className="Routes">
-                            <img src="./images/video.png" alt="demo video"/>
-                            <img src="./images/info.png" alt="info"/>
-                            <img src="./images/repository.png" alt="github"/>
+                            <img src="../../images/video.png" alt="demo video"/>
+                            <img src="../../images/info.png" alt="info"/>
+                            <img src="../../images/repository.png" alt="github"/>
                           </div>
                           <div className="CTAbuttons">
                             <ul className="UserButtons">

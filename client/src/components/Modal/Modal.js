@@ -17,7 +17,8 @@ const CUSTOM_STYLES = {
 const ModalType = { SCANNER: 'scanner', MANUAL: 'manual' };
 export { ModalType };
 
-export function ScannerModal({ onAfterOpen, onClose, onSubmit, code, handleChange}){
+export function ScannerModal({ onAfterOpen, onClose, onSubmit, handleChange, code}){
+  
   return (
     <Modal isOpen
     onRequestClose={onClose}
@@ -25,7 +26,7 @@ export function ScannerModal({ onAfterOpen, onClose, onSubmit, code, handleChang
     style={CUSTOM_STYLES}
     contentLabel="Scanner Modal">
       <div className="modal-header" style={{padding: "35px 50px"}}>
-        <button type="button" className="close"  onClick={onClose} data-dismiss="modal">&times;</button>
+        <button type="button" className="close" onClick={onClose} data-dismiss="modal">&times;</button>
         <h4><span className="glyphicon glyphicon-camera"></span>Item Entry</h4>
       </div>
       <div className="modal-body" style={{padding:"40px 50px"}}>
@@ -39,7 +40,7 @@ export function ScannerModal({ onAfterOpen, onClose, onSubmit, code, handleChang
           <form onSubmit={onSubmit}>
             <div className="form-group">
               <label htmlFor="code">EAN:</label>
-              <input id="code" className="form-control" name="code" type="text" value={code} onChange={handleChange}/>
+              <input id="code" className="form-control" name="code" type="text" value = {code} onChange={handleChange}/>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>

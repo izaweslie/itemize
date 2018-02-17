@@ -134,7 +134,7 @@ img {
 }
 
 .VideoIcon {
-	background-image:url('./images/video.png');
+	background-image:url('../../images/video.png');
 }
 
 
@@ -148,7 +148,7 @@ a:link, a:visited {
 
 @media screen and (min-width:766px){
     .MainContainer {
-    background: url("./images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
+    background: url("../../images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -163,7 +163,7 @@ a:link, a:visited {
     }
 
     .Image {
-    background: url("./images/bw-blueprint.jpg") no-repeat center center fixed;
+    background: url("../../images/bw-blueprint.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -265,7 +265,7 @@ a:link, a:visited {
 @media screen and (min-width:1800px){
     .MainContainer {
     	background: none;
-	    background: url("./images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
+	    background: url("../../images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
 	    -webkit-background-size: cover;
 	    -moz-background-size: cover;
 	    -o-background-size: cover;
