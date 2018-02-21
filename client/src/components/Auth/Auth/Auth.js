@@ -5,7 +5,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'urath.auth0.com',
     clientID: 'Z3vIBMDQtjIhCguh9R60nJ9CTSnLTSWd',
-    redirectUri: 'http://localhost:3000/callback',
+    redirectUri: 'https://itemize.herokuapp.com/callback',
     audience: 'https://urath.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid profile'
