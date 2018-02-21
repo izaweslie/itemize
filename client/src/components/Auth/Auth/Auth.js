@@ -40,9 +40,12 @@ export default class Auth {
     if (authResult && authResult.accessToken && authResult.idToken) {
     // Set the time that the access token will expire at
       let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+      let auththing = JSON.stringify(authResult);
+      localStorage.setItem('authresult', auththing);
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);
+      this.getProfile;
       // navigate to the home route
       history.replace('/home');
     }
@@ -59,10 +62,17 @@ export default class Auth {
   getProfile(cb) {
     let accessToken = this.getAccessToken();
     this.auth0.client.userInfo(accessToken, (err, profile) => {
+      console.log("error", err)
+      console.log("prfile" , profile)
+      localStorage.setItem('profile', profile);
       if (profile) {
         this.userProfile = profile;
-        localStorage.userProfile = this.userProfile;
+        
+        //localStorage.setItem("farts", JSON.stringify(profile.sub));
         localStorage.username = profile.nickname;
+        //localStorage.farts = profile.nickname;
+        //localStorage.users = profile.nickname;
+        //localStorage.setItem('expires_at', expiresAt);
         localStorage.user_id = profile.sub;
       }
       cb(err, profile);

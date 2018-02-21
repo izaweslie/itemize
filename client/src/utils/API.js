@@ -20,33 +20,55 @@ export default {
 
     return axios.get("https://eandata.com/feed/?v=3", {params}).then(results =>{
       //Needs updating for error checking.
-      var thing = results.data.product
-      if(thing.length === undefined ){
+      var status = results.data.status.code
+      if(status === '200' ){
         return results
       }
-      else if(thing.length === 0){
-        return "Error"
+      else if(status === '404'){
+        var newData = {
+          data: {
+            product:{
+              attributes:{
+                product: "Item not found. Please enter the Item details",
+                category_text: "",
+                long_desc: "",
+                price_new: ""
+              },
+              EAN13: code,
+              UPCA: "",
+              image: ""
+            },
+            company:{
+              name: ""
+            }
+          }
+        }
+        return newData
+      }
+      else if(status === '400'){
+        var errorData = {
+          data: {
+            product:{
+              attributes:{
+                product: "Invalid EAN. Please manually enter the item details",
+                category_text: "",
+                long_desc: "",
+                price_new: ""
+              },
+              EAN13: code,
+              UPCA: "",
+              image: ""
+            },
+            company:{
+              name: ""
+            }
+          }
+        }
+        return errorData
       }
     }).catch(error => {
       console.log(error);
-      var notFound = "Error"
-        // data: {
-        //   product:{
-        //     attributes:{
-        //       product: "Error: Please enter a valid EAN code",
-        //       category_text: "",
-        //       long_desc: "",
-        //       price_new: ""
-        //     }
-        //     EAN13: "",
-        //     UPCA: "",
-        //     image: ""
-        //   }
-        //   company:{
-        //     name: ""
-        //   }
-        // }
-      return notFound;
+      return error;
     })
   },
 

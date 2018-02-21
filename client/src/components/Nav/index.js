@@ -1,2 +1,2 @@
-export * from "./Nav";
-export * from "./Footer";
+export { default } from "./Nav.js";
+//export * from "./Footer";
