@@ -1,0 +1,52 @@
+
+
+.bg-light{
+	background-color: rgb(241, 236, 222)!important;
+}
+
+#myBtn{
+	font-size: 20px;
+}
+
+.glyphicon{
+	color: rgb(213, 106, 85);
+}
+
+.navbar-light .navbar-brand {
+    text-shadow: 2px 2px 5px rgb(230, 230, 230);
+    color: black;
+}
+
+.xnavbar-light .nxavbar-nav .xnav-link {
+    color: rgb(230, 230, 230);
+    background-color: none;
+}
+
+@xmedia screen and (max-width:765px){
+    .navbar, .modal-header, .modal-footer{
+        background: url("../../images/bw-blueprint.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        width: 100%;
+        height: 250px;
+    }
+    .navbar-light, .navbar-brand, .h1, h1 {
+        text-shadow: 2px 2px 5px rgb(155, 170, 182);
+        color: rgb(230, 230, 230);
+    }
+    .nav-link {
+        display: block;
+        padding: .5rem 1rem;
+        background-color: rgb(155, 170, 182);
+    }
+    li, .nav-item {
+        color: rgb(155, 170, 182);
+    }
+    .navbar-light .navbar-toggler {
+        color: rgb(230,230,230);
+        border-color: rgb(230,230,230);
+        background-color: rgb(155, 170, 182);
+    }
+}

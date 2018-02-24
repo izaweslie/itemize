@@ -1,0 +1,22 @@
+#footer{
+	margin-top: 15px;
+
+	padding: 50px;
+	
+}
+
+#footer-text{
+	color: #505B66;
+}
+
+.bg-light{
+	background-color: rgb(241, 236, 222)!important;
+}
+
+#myBtn{
+	font-size: 20px;
+}
+
+.glyphicon{
+	color: rgb(213, 106, 85);
+}
