@@ -32,7 +32,7 @@ class LandingPage extends Component {
 					  <div className="InnerContainer">
 						<div className="InfoBox">
 						  <div className="LogoBox">
-							<h1 className="Logo">itemizr</h1>
+							<h1 className="Logo"></h1>
 						  </div>
 						  <div className="TopContentBox">
 							<h2 className="Description">Finders Keepers, Losers Weepers</h2>

@@ -6,7 +6,7 @@ html {
 	position: absolute;
 	overflow: auto;
 	height: 100%;
-    }
+	}
 
 .Image {
 	background-color: none;
@@ -55,17 +55,21 @@ html {
 
 .Routes {
 	position: absolute;
-    right: 340px;
-    display: flex;
-    justify-content: space-between;
-    width: 10%;
-    top: 20px;
+	right: 340px;
+	display: flex;
+	justify-content: space-between;
+	width: 10%;
+	top: 20px;
 }
 
 .CTAbuttons {
 	position: absolute;
-    right: 60px;
-    top: 20px;
+	right: 60px;
+	top: 20px;
+}
+
+.card-header{
+	background-color: #F1ECDE;
 }
 
 li {
@@ -108,7 +112,7 @@ ul {
 	font-size: 18px;
 }
 
-.Logo {
+.xLogo {
 	font-size: 72px;
 	font-style: bold;
 	font-family: 'PLay', sans-serif;
@@ -117,11 +121,81 @@ ul {
 	margin-bottom: 20px;
 }
 
-img {
+#imgThing {
 	height: 25%;
 	width: 25%;
 	margin-right: 15px;
 	margin-top: 10px;
+}
+
+#item-col, #item-list{
+	padding: 0px;
+}
+
+#total-items{
+	margin-bottom: 0px;
+	border-radius: .25rem;
+	border: solid;
+	border-width: 1px;
+	border-color: #D3D2D7;
+}
+.no-padding {
+	padding: 0;
+}
+#summary{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.white {
+	background-color: white;
+}
+
+#summ-icon-container{
+	background-color: #F07F5E;
+	color: white;
+	text-align:center;
+	display:block;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.top-padding{
+	padding-top: 5px;
+	
+	
+}
+
+
+.panel-icon{
+	display: flex;
+	align-items: center;
+}
+
+#total-items-card{
+	margin-bottom: 10px;
+}
+
+.card-title{
+	margin-bottom: 0px;
+	display: inline;
+}
+
+#total-price{
+	margin-bottom: 0px;
+	border-radius: .25rem;
+	border: solid;
+	border-width: 1px;
+	border-color: #D3D2D7;
+}
+
+#price-icon{
+	background-color: #B5DD9E;
+	color: white;
+	text-align:center;
+	display:block;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 .swal-overlay {
@@ -133,76 +207,224 @@ img {
 	background-color: black;
 }
 
+#camera-selection {
+	display: none;
+}
+
 .VideoIcon {
 	background-image:url('../../images/video.png');
 }
 
+#scan-btn{
+	margin-bottom: 10px;
+}
 
+#plus{
+	color: white;
+}
+#notif{
+	padding: 0px;
+}
+
+#barHeader{
+	margin: 0px;
+}
+
+#plus-container{
+	xpadding-right: 0px;
+}
+
+
+.blue-btn {
+	background-color: #5E9BDC;
+	font-weight: bold;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	color: white;
+}
+
+#choose-btn {
+	background-color: #5E9BDC;
+	font-weight: bold;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.close{
+	color: #f07f5e;
+}
+
+.red-btn{
+	background-color: #F07F5E;
+	font-weight: bold;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	color: white;	
+}
+
+#delete-btn {
+	background-color: #F07F5E;
+	font-weight: bold;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#choose-btn:hover{
+	background-color: #97A7B4;
+}
+#bar{
+	background-color: #F1ECDE;
+	border-bottom-right-radius: .25rem;
+	border-bottom-left-radius: .25rem;
+	border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem;
+	position: relative;
+	padding: .75rem 1.25rem;
+	margin: 0 15px 0 15px;
+	border: solid;
+	border-width: 1px;
+	border-color: #E3A158;
+}
 a:link, a:visited {
-    text-decoration: none;
-    xcolor: white;
-    cursor: pointer;
+	text-decoration: none;
+	xcolor: white;
+	cursor: pointer;
+}
+
+.logo {
+	width: 50%;
 }
 
 {box-sizing: border-box;}
 
-@media screen and (min-width:766px){
-    .MainContainer {
-    background: url("../../images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
-    }
+@media screen and (min-width:768px){
+	.MainContainer {
+	background: url("../../images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+	}
+	.list-img-left{
+		width: 95%;
+	}
+
+	.logo {
+		width: 40%;
+	   
+	}
+	#logo-link{
+		margin-right: 0;
+		padding-bottom: 10px;
+	}
+	#other-nav{
+		display: none;
+	}
+
+	#center-nav {
+		display:block;
+	}
+
+	#plus-container{
+		width: 0px;
+	}
 }
 
-@media screen and (max-width:765px){
-    .MainContainer {
-    	background: none;
-    }
+@media screen and (min-width:992px){
+	.MainContainer {
+	background: url("../../images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+	}
+	.list-img-left{
+		width: 95%;
+	}
 
-    .Image {
-    background: url("../../images/bw-blueprint.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    width: 100%;
-    height: 250px;
-    float: left;
-    display: block;
-    }
+	.right{
+		float: right;
+	}
 
-    .Container {
-        width: 100%;
-        float: left;
-        display: block;
-    }
+	.logo {
+		width: 40%;
+	   
+	}
+	#other-nav{
+		display: block;
+	}
 
-    .InnerContainer {
-        width: 100%;
-        float: left;
-    }
+	#center-nav {
+		display:none;
+	}
+}
 
-    .InfoBox {
-        width: 90%;
-        float: left;
-        margin: 0px 0px, 0px 0px;
-    }
 
-    .TopContentBox {
-        width: 100%;
-    }
 
-    .BottomContentBox {
-        width: 100%;
-        margin: auto;
-        float: left;
-        display: block;
-    }
 
-    .Routes {
+@media screen and (max-width:767px){
+	.MainContainer {
+		background: none;
+	}
+	#logo-link{
+		margin-right: 0;
+		padding-bottom: 10px;
+	}
+	#other-nav{
+		display: none;
+	}
+
+	#center-nav {
+		display:inline-block;
+	}
+	
+	.list-img-left{
+		xwidth: 25%;
+		margin-bottom: 10px;
+ 
+	}
+	.logo {
+		width: 50%;
+	   
+	}
+	.Image {
+	background: url("../../images/bw-blueprint.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	width: 100%;
+	height: 250px;
+	float: left;
+	display: block;
+	}
+
+	.Container {
+		width: 100%;
+		float: left;
+		display: block;
+	}
+
+	.InnerContainer {
+		width: 100%;
+		float: left;
+	}
+
+	.InfoBox {
+		width: 90%;
+		float: left;
+		margin: 0px 0px, 0px 0px;
+	}
+
+	.TopContentBox {
+		width: 100%;
+	}
+
+	.BottomContentBox {
+		width: 100%;
+		margin: auto;
+		float: left;
+		display: block;
+	}
+
+	.Routes {
 		margin: auto;
 		width: 50%;
 		position: static;
@@ -210,16 +432,16 @@ a:link, a:visited {
 		padding: 0px 0px 15px 0px;
 		display: flex;
 		justify-content: space-around;
-    }
+	}
 
-    .CTAbuttons {
+	.CTAbuttons {
 		/*margin: auto;*/
 		width: 100%;
 		position: absolute;
-        
-    }
+		
+	}
 
-    li {
+	li {
 		list-style: none;
 		border-style: solid;
 		padding: 5px;
@@ -228,13 +450,13 @@ a:link, a:visited {
 		display: list-item;
 		text-align: center;
 		margin-top: 10px;
-    }
+	}
 
-    #Cta1 {
-        margin: none;
-        margin-right: 0px;
-        display: inline-block;
-    }
+	#Cta1 {
+		margin: none;
+		margin-right: 0px;
+		display: inline-block;
+	}
 
 
 
@@ -242,88 +464,88 @@ a:link, a:visited {
 		color: #000000;
 		font-style: bold;
 		font-family: 'Play', sans-serif;
-        text-shadow: none;
-    }*/
+		text-shadow: none;
+	}*/
 
-    h2, p {
-        font-style: bold;
-        font-family: 'Exo', sans-serif
-    }
+	h2, p {
+		font-style: bold;
+		font-family: 'Exo', sans-serif
+	}
 
-    .Logo {
-        color: black;
-        text-shadow: 2px 2px 5px rgb(247, 175, 65);
-        font-family: 'Play', sans-serif;
-        font-style: bold;
-    }
-    .UserButtons {
-        text-align: center;
-    }
+	.Logo {
+		color: black;
+		text-shadow: 2px 2px 5px rgb(247, 175, 65);
+		font-family: 'Play', sans-serif;
+		font-style: bold;
+	}
+	.UserButtons {
+		text-align: center;
+	}
 
 }
 
 @media screen and (min-width:1800px){
-    .MainContainer {
-    	background: none;
-	    background: url("../../images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
-	    -webkit-background-size: cover;
-	    -moz-background-size: cover;
-	    -o-background-size: cover;
-	    background-size: cover;
-	    height: 100%;
+	.MainContainer {
+		background: none;
+		background: url("../../images/opaque-inverted-blueprint.jpg") no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		height: 100%;
 	
-    }
+	}
 }
 
 @media screen and (max-width:1000px){
-    .TopContentBox {
-    	width: 65%;
-    }
+	.TopContentBox {
+		width: 65%;
+	}
 
 
-    .InnerContainer {
-        width: 100%;
-        float: left;
-        position: relative;
-    }
+	.InnerContainer {
+		width: 100%;
+		float: left;
+		position: relative;
+	}
 
-    .BottomContentBox {
-        width: 100%;
-        margin: auto;
-        position: relative;
-    }
+	.BottomContentBox {
+		width: 100%;
+		margin: auto;
+		position: relative;
+	}
 
-    .Routes {
-	    position: absolute;
-	    left: 300px;
-	    top: 200px;
-	    display: flex;
-	    justify-content: space-between;
-	    width: 25%;
-	    margin-bottom: 20px;
-    }
+	.Routes {
+		position: absolute;
+		left: 300px;
+		top: 200px;
+		display: flex;
+		justify-content: space-between;
+		width: 25%;
+		margin-bottom: 20px;
+	}
 
-    .CTAbuttons {
-	 	position: absolute;
-    	left: 5px;
-    	top: 225px;
-    }
+	.CTAbuttons {
+		position: absolute;
+		left: 5px;
+		top: 225px;
+	}
 
-    li {
-    	display: list-item;
-    	text-align: center;
-    	width: 40%;
-    }
+	li {
+		display: list-item;
+		text-align: center;
+		width: 40%;
+	}
 
-    #Cta1 {
-    	margin-bottom: 10px;
-    }
+	#Cta1 {
+		margin-bottom: 10px;
+	}
 
-    ul {
-	    position: absolute;
-	    left: 250px;
-        width: 70%;
-        top: 50px;
-    }
+	ul {
+		xposition: absolute;
+		xleft: 250px;
+		xwidth: 70%;
+		top: 50px;
+	}
 
 }

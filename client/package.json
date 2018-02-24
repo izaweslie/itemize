@@ -1,25 +1,26 @@
 {
-  "version": "0.1.0",
-  "private": true,
-  "proxy": "http://localhost:3001/",
-  "dependencies": {
-	"auth0": "^2.9.1",
-	"auth0-js": "^9.2.2",
-	"jwt-decode": "^2.2.0",
-	"quagga": "^0.12.1",
-	"react": "^16.0.0",
-	"react-dom": "^16.0.0",
-	"react-modal": "^3.1.11",
-	"react-scripts": "1.0.14",
-	"react-table": "^6.7.6"
-  },
-  "engines": {
-	"node": "6.11.1"
-  },
-  "scripts": {
-	"start": "react-scripts start",
-	"build": "react-scripts build",
-	"test": "react-scripts test --env=jsdom",
-	"eject": "react-scripts eject"
-  }
+	"name": "mern",
+	"version": "0.1.0",
+	"private": true, 
+	"proxy": "http://localhost:3001/",
+	"dependencies": {
+		"auth0": "^2.9.1",
+		"auth0-js": "^9.2.2",
+		"jwt-decode": "^2.2.0",
+		"quagga": "^0.12.1",
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0",
+		"react-modal": "^3.1.11",
+		"react-scripts": "1.0.14",
+		"react-table": "^6.7.6"
+	},
+	"engines": {
+		"node": "6.11.1"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	}
 }

@@ -9,6 +9,10 @@
   text-decoration: none;
 }
 
+#user-items{
+  xpadding: 0 50px 0 50px;
+}
+
 #cameraBtn{
   border: solid;
   border-width: 1px;
@@ -288,8 +292,6 @@ i.icon-24-scan {
 }
 
 .list{
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 #headerOne {
@@ -303,11 +305,11 @@ i.icon-24-scan {
 }
 
 .modal-header, .modal-footer{
-  background-color: rgb(241, 236, 222);
+  background-color: #F9F7E7;
 }
 
 .modal-body{
-  background-color: rgb(194, 224, 231);
+  background-color: white;
 }
 
 #scanner_input{
@@ -317,7 +319,7 @@ i.icon-24-scan {
 .card{
   border: solid;
   border-width: 1px;
-  border-color: rgb(238, 199, 172);
+  border-color: #D3D2D7;
   margin-bottom: 10px;
   background-color: white;
 }
@@ -336,10 +338,6 @@ i.icon-24-scan {
   border-width: 1px;
 }
 
-.card-img-top{
-  xwidth: 100%;
- 
-}
 
 .form-control, .form-group{
   width: 100%;

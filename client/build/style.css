@@ -1,19 +1,23 @@
 body {
 	width: 100%;
-	font-family: 'Roboto', sans-serif;
-	letter-spacing: 5px;
-	background-color: rgb(194, 224, 231);
-	color: black;
+	font-family: 'Ubuntu', sans-serif;
+	background-color: white;
+	color: #505B66;
+	overflow-x: hidden;
 }
 
-.navbar-collapse{
+.xnavbar-collapse{
 	float: right;
 	position: relative;
 	top:0;
 }
 
 .buttonDiv{
-	padding: 25px;
+	padding-top: 25px;
+}
+
+.bg-light{
+	background-color: #F9F7E7;
 }
 
 #manualBtn{
@@ -51,21 +55,7 @@ body {
 	background-color: rgb(241, 236, 222);
 }
 
-#headerOne {
-	background-color: rgb(241, 236, 222);
-	color: black;
-	border: solid;
-	border-width: 1px;
-	border-color: rgb(238, 199, 172);
-	text-align: center;
-}
-
 .btn, .btn-danger{
 	background-color: rgb(145, 183, 150);
 	border: none;
-}
-
-.list{
-	padding-top: 50px;
-	padding-bottom: 50px;
 }

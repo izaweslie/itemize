@@ -3,9 +3,14 @@ import Modal from 'react-modal';
 import Quagga from 'quagga';
 import "./styles.css";
 import API from "../../utils/API";
-import { ModalType, ManualModal, ScannerModal } from '../../components/Modal';
+import { ModalType, ManualModal, ScannerModal, ChooseModal } from '../../components/Modal';
 import ReactTable from 'react-table';
+import ItemList from '../../components/ItemList'
+import {ItemPanel, SummaryPanel} from '../../components/Panel'
+import icon from "./icon-small.png"
 //import "../../node_modules/react-table/react-table.css";
+
+//add price, add way to add up value, add quantity, remove the database form after submitting, add delete item, check for duplicate items, look at error checking for 0030100940340
 
 class Itemize extends Component {
 	constructor() {
@@ -13,12 +18,16 @@ class Itemize extends Component {
 		this.state = {
 			currentModal: null,
 			modalIsOpen: false,
+			chooseModal: null,
 			editBeforeDatabase: false,
 			code: "", 
 			data: "",
 			profile: "", 
 			user_id: "", 
 			savedItems: [], 
+			total_items: "",
+			total_worth: "",
+			delete_item: "",
 			item: {
 				productName:"",
 				companyName:"",
@@ -28,7 +37,8 @@ class Itemize extends Component {
 				desc: "",
 				price_new: "",
 				image: "",
-				location: ""
+				location: "",
+				quantity: ""
 			},
 			format:"", //remove
 
@@ -102,6 +112,19 @@ class Itemize extends Component {
 		this.setState({user_id: ""})
 	}
 
+	calculateTotal = (items) => {
+		//for (let i = 0; i<)
+		var total_items=0;
+		var total_worth=0;
+		items.forEach((item, index) => {
+			total_items += item.quantity;
+			total_worth += item.price_new*item.quantity;
+		})
+		this.setState({total_items: total_items, total_worth: total_worth});
+		console.log("total_items" , total_items)
+		console.log("total_worth" , total_worth)
+	}
+
 	checkForUser(user_id){
 		//if a user deletes all of their items, then what? Either add dummy data or do api call to search for user id
 		API.getUserSavedItems(user_id).then(res => {
@@ -157,7 +180,8 @@ class Itemize extends Component {
 	loadSavedItems = () => {
 		API.getUserSavedItems(this.state.user_id).then(res => {
 			this.setState({ savedItems: res.data.items })
-			console.log(this.state.saveItems)
+			console.log(this.state.savedItems)
+			this.calculateTotal(this.state.savedItems);
 		}).catch(err => console.log(err));
 	}
 
@@ -169,7 +193,23 @@ class Itemize extends Component {
 		// });
 	}
 
+	deleteItem = (item_id) => {
+		//this.setState({delete_item: id})
+		console.log("item", item_id)
+		this.handleItemDelete(this.state.user_id, item_id);
+	}
+
+	handleItemDelete = (id, item_id) => {
+		console.log(item_id)
+		API.deleteItem(id, item_id).then(res => {
+			console.log("deleted");
+			this.loadSavedItems();
+		}).catch(err => console.log(err));
+	}
 	handleItemSave = (item) => {
+		if (item.image === ""){
+			item.image = icon;
+		}
 		API.saveItem(this.state.user_id,{
 			productName: item.productName,
 			companyName: item.companyName,
@@ -179,6 +219,7 @@ class Itemize extends Component {
 			desc:item.desc,
 			price_new:item.price_new,
 			image:item.image,
+			quantity:item.quantity,
 			location:item.location
 		})
 		.then(res => {
@@ -225,7 +266,7 @@ class Itemize extends Component {
 				this.stopQuagga();
 				return
 			}
-			this.initCameraSelection();
+			//this.initCameraSelection();
 			console.log("Initialization finished. Ready to start");
 			Quagga.start();
 
@@ -283,6 +324,7 @@ class Itemize extends Component {
 			console.log("to the database!");
 			console.log(this.state.item);
 			this.closeModal();
+			this.setState({editBeforeDatabase: false})
 			this.handleItemSave(this.state.item);
 			//this.setState({databaseCall: true});
 		}
@@ -319,14 +361,55 @@ class Itemize extends Component {
 				// this.setState({data: newData.data});
 				console.log(this.state.data);
 				let item = Object.assign({}, this.state.item);
-					item.productName = this.state.data.product.attributes.product;
-					item.companyName = this.state.data.company.name;
-					item.ean = this.state.data.product.EAN13;
-					item.upca = this.state.data.product.UPCA;
-					item.category = this.state.data.product.attributes.category_text;
-					item.desc = this.state.data.product.attributes.long_desc;
-					item.price_new = this.state.data.product.attributes.price_new;
-					item.image = this.state.data.product.image;
+					if(this.state.data.product.attributes.product){
+						item.productName = this.state.data.product.attributes.product;
+					}
+					else{
+						item.productName = "";
+					}
+					if(this.state.data.company.name !== undefined){
+						item.companyName = this.state.data.company.name;
+					}
+					else{
+						item.companyName = "";
+					}
+					if(this.state.data.product.EAN13){
+						item.ean = this.state.data.product.EAN13;
+					}
+					else {
+						item.ean = "";
+					}
+					if(this.state.data.product.UPCA){
+						item.upca = this.state.data.product.UPCA;
+					}
+					else {
+						item.upca = ""
+					}
+					if(this.state.data.product.attributes.category_text){
+						item.category = this.state.data.product.attributes.category_text;
+					}
+					else {
+						item.category = ""
+					}
+					if(this.state.data.product.attributes.long_desc){
+						item.desc = this.state.data.product.attributes.long_desc;
+					}
+					else {
+						item.desc = ""
+					}
+					if(this.state.data.product.attributes.price_new){
+						item.price_new = this.state.data.product.attributes.price_new;
+					}
+					else {
+						item.price_new = ""
+					}
+					if(this.state.data.product.image){
+						item.image = this.state.data.product.image;
+					}
+					else {
+						item.image = ""
+					}
+
 					this.setState({item});
 					//this.setState({item[productName]: this.state.data.product.attributes.product})
 					console.log(this.state.item);
@@ -395,6 +478,27 @@ class Itemize extends Component {
 		})
 	}
 
+	chooseModal(event){
+		//event.preventDefault();
+		const { name, value } = event.target;
+		console.log(event.target.value)
+		// this.setState({
+		// 	[name]: value
+		// });
+	}
+
+	choosePicked = () => {
+		this.openModal(ModalType.CHOOSE)
+	}
+
+	scannerPicked = () =>{
+		this.openModal(ModalType.SCANNER);
+	}
+
+	manualPicked = () => {
+		this.openModal(ModalType.MANUAL)
+	}
+
 	openModal(modalType) {
 		let selector = Object.assign({}, this.state.liveStreamConfig);
 		this.setState({currentModal: modalType, editBeforeDatabase: false, data: "", code: ""});
@@ -410,6 +514,7 @@ class Itemize extends Component {
 		item.price_new = "";
 		item.image = "";
 		
+		this.setState({item: item})
 		console.log(this.state);
 		//, liveStreamConfig.inputStream.target:
 	}
@@ -470,28 +575,13 @@ class Itemize extends Component {
 		}
 
 		return (
-			<div>
 				<div className = "container-fluid">
-					<div className = "row buttonDiv">
-						<div className="offset-md-3 col col-md-3 col-sm-6 text-center">
-				  			<a data-toggle="modal" onClick={() => this.openModal(ModalType.MANUAL)} href="" id="manualBtn"><span className="glyphicon glyphicon-pencil" onClick={()=>this.logout.bind(this)}></span>Manual Entry</a>
-						</div>
-						<div className="col col-md-3 col-sm-6 text-center">
-							<a data-toggle="modal" onClick={() => this.openModal(ModalType.SCANNER)} href="#" id="cameraBtn"><span className="glyphicon glyphicon-camera"></span>Camera Entry</a>
-						</div>
-			  		</div>
-					<div className="row list">
-						<div className ="col-sm-12 col-xs-12">
-							{this.state && !this.state.savedItems ? (
-								<div>
-									<h1 className="list-group-item active" id="headerOne">Enter Item</h1>
-								</div>
-							) : ( 
-								<h1 className="list-group-item active" id="headerOne">Your Items</h1>
-							)}
-
+					<SummaryPanel
+						total_items = {this.state.total_items}
+						total_worth = {this.state.total_worth}
+					/>
 							<div className = "row">
-								<div className='col-md-10 offset-md-2'>
+								<div className='col'>
 									{this.state && this.state.editBeforeDatabase ? (
 										<form onSubmit={this.handleSubmit}>
 											<div className="form-group">
@@ -510,6 +600,12 @@ class Itemize extends Component {
 												<label htmlFor="category">Category:</label>
 												<input name="category" className="form-control" type="text" value={this.state.item.category} onChange={this.handleManualModalChange}/>
 
+												<label htmlFor="quantity">Quantity:</label>
+												<input name="quantity" className="form-control" type="text" value={this.state.item.quantity} onChange={this.handleManualModalChange}/>
+
+												<label htmlFor="price_new">Price:</label>
+												<input name="price_new" className="form-control" type="text" value={this.state.item.price_new} onChange={this.handleManualModalChange}/>
+
 												<label htmlFor="desc">Description:</label>
 												<input name="desc" className="form-control" type="text" value={this.state.item.desc} onChange={this.handleManualModalChange}/>
 											</div>
@@ -521,42 +617,20 @@ class Itemize extends Component {
 									)}
 								</div>
 							</div>
-						</div>
-					</div>
+				
 
-					<div className = "row">
-							<div className='md-12'>
-								{this.state.savedItems.length ? (
-									<div>
-										<div className="card-columns">
-											{this.state.savedItems.map(item => (
-												<div key = {item._id} className = 'card'>
-													<img className="card-img-top" src={item.image} alt="Card image cap"/>
-													<div className="card-block">
-														<h4 className="card-title">{item.productName}</h4>
-														<div className="card-text">
-															<div><strong>Category:</strong> {item.category}</div>
-															<div><strong>Location:</strong> {item.location}</div>
-															<div><strong>Description:</strong> {item.desc}</div>
-											  			</div>
-													</div>
-													<div className="card-footer">
-														<small className="text-muted">Price: {item.price_new}</small>
-													</div>
-												</div>
-											))}
-										</div>
-										<ReactTable data={this.state.savedItems} columns={columns} />
-									</div>
+					
+						<ItemPanel 
+							items={this.state.savedItems}
 
-								) : (
-									<h3>No Results to Display</h3>
-								)}
-							</div>
-					</div>
+							choose={this.choosePicked}
+							deleteItem={this.deleteItem}
+						/>
+
+						
+					
 					{this.renderModal()}
 				</div>
-			</div>
 		);
 	}
 
@@ -582,6 +656,16 @@ class Itemize extends Component {
 					category={this.state.item.category}
 					description={this.state.item.desc}
 					ean={this.state.item.ean}
+					quantity={this.state.item.quantity}
+					price={this.state.item.price_new}
+				/>;
+			case ModalType.CHOOSE:
+				return <ChooseModal
+					onAfterOpen={this.handleOpenModal}
+					onClose={() => this.closeModal()}
+					onSubmit={this.handleSubmit}
+					scanner={this.scannerPicked}
+					manual={this.manualPicked}
 				/>;
 			default:
 				return null;

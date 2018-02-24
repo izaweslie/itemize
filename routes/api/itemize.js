@@ -23,4 +23,8 @@ router
   .post(itemsController.create)
   .delete(itemsController.remove);
 
+router
+  .route("/:id/item/:item_id")
+  .delete(itemsController.remove);
+
 module.exports = router;

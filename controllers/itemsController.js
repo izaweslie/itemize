@@ -32,9 +32,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
+    console.log(req.params)
     db.Item
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+      .findById({ _id: req.params.item_id })
+      .then(dbItem =>{
+        return db.Users.findOneAndUpdate({user_id: req.params.id}, { $pull: { items: dbItem._id } })
+        }) //dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

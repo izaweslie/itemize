@@ -20,9 +20,100 @@ export default {
 
     return axios.get("https://eandata.com/feed/?v=3", {params}).then(results =>{
       //Needs updating for error checking.
+      console.log(results)
       var status = results.data.status.code
       if(status === '200' ){
-        return results
+        if(results.data.company && results.data.product.attributes && results.data.product.image){
+          return results
+        }
+        else if(!results.data.company){
+          if(results.data.product.attributes){
+            var newData = {
+              data: {
+                product:{
+                  attributes:{
+                    product: results.data.product.attributes.product,
+                    category_text: results.data.product.attributes.category_text,
+                    long_desc: results.data.product.attributes.long_desc,
+                    price_new: results.data.product.attributes.price_new
+                  },
+                  EAN13: code,
+                  UPCA: "",
+                  image: ""
+                },
+                company:{
+                  name: ""
+                }
+              }
+            }
+            return newData
+          }
+          else {
+            var newData = {
+              data: {
+                product:{
+                  attributes:{
+                    product: "Item not found. Please enter the Item details",
+                    category_text: "",
+                    long_desc: "",
+                    price_new: ""
+                  },
+                  EAN13: code,
+                  UPCA: "",
+                  image: ""
+                },
+                company:{
+                  name: ""
+                }
+              }
+            }
+            return newData
+
+          }
+        } 
+        else if(!results.data.product.attributes){
+          var newData = {
+            data: {
+              product:{
+                attributes:{
+                  product: "Item not found. Please enter the Item details",
+                  category_text: "",
+                  long_desc: "",
+                  price_new: ""
+                },
+                EAN13: code,
+                UPCA: "",
+                image: ""
+              },
+              company:{
+                name: results.data.company
+              }
+            }
+          }
+          return newData
+        } 
+        else if(!results.data.product.image){
+          var newData = {
+          data: {
+            product:{
+              attributes:{
+                product: results.data.product.attributes.product,
+                category_text: results.data.product.attributes.category_text,
+                long_desc: results.data.product.attributes.long_desc,
+                price_new: results.data.product.attributes.price_new
+              },
+              EAN13: code,
+              UPCA: "",
+              image: ""
+            },
+            company:{
+              name: results.data.company
+            }
+          }
+        }
+        return newData
+        }
+        
       }
       else if(status === '404'){
         var newData = {
@@ -86,6 +177,15 @@ export default {
 
   updateUserItems: function(id,item_id){
     return axios.put("/api/user/" + id, item_id)
+  },
+
+  setTotalItems: function(id){
+    return axios.post()
+  },
+
+  deleteItem: function(id, item_id){
+    console.log(item_id)
+    return axios.delete("/api/user/" + id + "/item/" + item_id, item_id)
   },
   
   // deleteArticle: function(id) {

@@ -6,7 +6,9 @@ const UserSchema = new Schema({
 	items: [{
 		type: Schema.Types.ObjectId,
 		ref: "Item"
-	}]
+	}],
+	total_items: {type: Number },
+	total_worth: {type: Number }
 });
 
 const Users = mongoose.model("User", UserSchema);
