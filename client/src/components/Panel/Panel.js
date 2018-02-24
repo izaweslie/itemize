@@ -14,7 +14,7 @@ export function SummaryPanel ({total_items, total_worth}){
 							<div className ="col col-sm-5 col-md-4 col-lg-3 my-auto" id ="summ-icon-container">
 								<i className="fas fa-shopping-bag fa-4x" id = "summ-icon"></i>
 							</div>
-							<div className ='col-9 col-sm-7 col-md-8 col-lg-9 text-center my-auto'>
+							<div className ='col-8 col-sm-7 col-md-8 col-lg-9 text-center my-auto'>
 								<h1 className="card-title">{total_items}</h1>
 								<div className ='row text-center'>
 									<div className = 'col'>Total Items</div>
@@ -27,7 +27,7 @@ export function SummaryPanel ({total_items, total_worth}){
 							<div className ="col col-sm-5 col-md-4 col-lg-3 my-auto" id ="price-icon">
 								<i className="fas fa-dollar-sign fa-4x"></i>
 							</div>
-							<div className ='col-9 col-sm-7 col-md-8 col-lg-9 text-center my-auto'>
+							<div className ='col-8 col-sm-7 col-md-8 col-lg-9 text-center my-auto'>
 								<h1 className="card-title">${total_worth}</h1>
 								<div className ='row text-center'>
 									<div className = 'col'>Total Value</div>
