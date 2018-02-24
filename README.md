@@ -91,6 +91,8 @@ Below is some example code showing how we used QuaggaJS to scan the barcodes:
 Here are some additional features we would like to implement in the future: 
  * The option to take a picture of the receipt associated with the item and have that stored with the item info.
  * The ability to upload saved photos of barcodes instead of only using a live streaming camera feature.
+ * An option to take your own photo of the item 
+ * Option to sort total values by category or location - i.e. the total value of my items in the office is $3,000 or the total value of my electronics is $5,000
  
 
 
