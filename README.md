@@ -11,11 +11,11 @@ Itemizr is an inventory application to support the cataloging of items in your h
 
 ### Motivation
 
-Our idea start with identifying a problem we all had, which was the difficulty of keeping track of items in our homes.  We developed an outline for an app where the user can create a database of all of their belongings that listed the location of each item. While figuring out methods for how to log each item, we discovered QuaggaJS, a javascript library for scanning barcodes using a computer or phone camera.  We also needed an API that would take the UPC number and return info on each item, and we found EANdata would do just that.  We realized while working on the project that another way the app could be useful was for taking inventory for homeowners or renters insurance.  In case of an event like a fire or another disaster the homeowner would have a thorough list of all of their belongings they might have possibly lost.
+Our idea started with identifying a problem we've all had, which was the difficulty of keeping track of items in our homes.  We developed an outline for an app where the user can create a database of all their belongings that listed the location of each item. While figuring out methods for how to log each item, we discovered QuaggaJS, a javascript library for scanning barcodes using a computer or phone camera.  We also needed an API that would take the UPC number and return info on each item, and the EANdata API would do just that.  While working on the project, we realized that another way the app could be useful was for taking inventory for homeowner's or renter's insurance.  In the event of a fire or other natural disaster, the homeowner would have a thorough list of their belongings to present to the insurance companies.
 
 ### Code Example
 
-Below is some example code showing how we used QuaggaJS to scan the barcodes:
+Below is some example code showing how we used QuaggaJS to scan barcodes:
 
 	 startQuagga = () => {
 		console.log("this is", this);
@@ -91,8 +91,8 @@ Below is some example code showing how we used QuaggaJS to scan the barcodes:
 Here are some additional features we would like to implement in the future: 
  * The option to take a picture of the receipt associated with the item and have that stored with the item info.
  * The ability to upload saved photos of barcodes instead of only using a live streaming camera feature.
- * An option to take your own photo of the item 
- * Option to sort total values by category or location - i.e. the total value of my items in the office is $3,000 or the total value of my electronics is $5,000
+ * An option to take your own photo of the item. 
+ * Option to sort total values by category or location - i.e. the total value of my items in the office is $3,000 or the total value of my electronics is $5,000.
  
 
 
